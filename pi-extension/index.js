@@ -49,7 +49,7 @@ export default function steExtension(pi) {
     } catch {
       return;
     }
-    c.ui.setStatus("ste", active ? theme.fg("accent", " STE") : "");
+    c.ui.setStatus("ste", active ? theme.fg("accent", " § STE") : "");
   }
 
   const setMode = (value, ctx) => {

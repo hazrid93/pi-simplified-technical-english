@@ -24,6 +24,8 @@ or from git:
 - `/ste off` — turn STE mode off.
 - `/ste status` — show the current mode.
 - `/ste check <file> [procedural|descriptive|mixed]` — run the STE check tool on a file and show the report.
+- Type `/ste ` with a space — pi shows all choices (`on`, `off`, `status`, `check`, and the check modes) in the autocomplete menu.
+- When STE mode is on, the footer shows a `§ STE` indicator.
 - `/ste-skill [text]` — use the STE skill one time, without the persistent mode.
 - Ask the agent to "check this text in STE" — the agent can call the `ste_check` tool on text or on a file.
 

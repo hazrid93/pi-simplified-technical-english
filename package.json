@@ -1,6 +1,6 @@
 {
   "name": "pi-simplified-technical-english",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simplified Technical English (ASD-STE100) for pi: a writing skill, a /ste session mode, and a ste_check tool.",
   "keywords": [
     "pi-package",
