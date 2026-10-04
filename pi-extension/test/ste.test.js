@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { parseSteCommand, resolveActive, runCheck, stripFrontmatter } from "../helpers.js";
+import { parseSteCommand, resolveActive, runCheck, stripFrontmatter, steCompletions } from "../helpers.js";
 
 test("parseSteCommand", () => {
   assert.deepEqual(parseSteCommand(""), { type: "set", active: true });
@@ -46,4 +46,22 @@ test("ste_check.py runs from the package location", async () => {
     mode: "procedural",
   });
   assert.equal(good.code, 0);
+});
+
+test("steCompletions shows all choices", () => {
+  const all = steCompletions("");
+  assert.deepEqual(all.map((c) => c.value), ["on", "off", "status", "check"]);
+  assert.ok(all.every((c) => c.label && c.description));
+});
+
+test("steCompletions filters prefixes and completes modes", () => {
+  assert.deepEqual(steCompletions("o").map((c) => c.value), ["on", "off"]);
+  assert.deepEqual(steCompletions("check").map((c) => c.value), ["check"]);
+  assert.deepEqual(steCompletions("check a.md").map((c) => c.label), [
+    "procedural",
+    "descriptive",
+    "mixed",
+  ]);
+  assert.deepEqual(steCompletions("check a.md p").map((c) => c.value), ["check a.md procedural"]);
+  assert.equal(steCompletions("bogus"), null);
 });

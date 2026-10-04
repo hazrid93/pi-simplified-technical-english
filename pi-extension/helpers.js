@@ -12,6 +12,29 @@ export const CHECK_SCRIPT = path.join(SKILL_DIR, "scripts", "ste_check.py");
 
 export const MODES = ["procedural", "descriptive", "mixed"];
 
+export const STE_CHOICES = [
+  { value: "on", label: "on", description: "Turn STE mode on" },
+  { value: "off", label: "off", description: "Turn STE mode off" },
+  { value: "status", label: "status", description: "Show the current STE status" },
+  { value: "check", label: "check", description: "Check a file: check <file> [procedural|descriptive|mixed]" },
+];
+
+// Argument completions for the /ste command. Returns null when nothing matches.
+export function steCompletions(prefix) {
+  const arg = String(prefix || "");
+  const parts = arg.split(/\s+/);
+  if (parts[0] === "check" && parts[1]) {
+    const modePrefix = parts[2] || "";
+    return MODES.filter((m) => m.startsWith(modePrefix)).map((m) => ({
+      value: `check ${parts[1]} ${m}`,
+      label: m,
+      description: `Check ${parts[1]} in ${m} mode`,
+    }));
+  }
+  const hits = STE_CHOICES.filter((c) => c.value.startsWith(arg.trim()));
+  return hits.length > 0 ? hits : null;
+}
+
 export function parseSteCommand(args) {
   const parts = String(args || "").trim().split(/\s+/).filter(Boolean);
   const [cmd, ...rest] = parts;

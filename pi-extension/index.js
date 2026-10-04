@@ -1,6 +1,6 @@
 import { StringEnum, Type } from "@earendil-works/pi-ai";
 import { defineTool } from "@earendil-works/pi-coding-agent";
-import { loadInstructions, parseSteCommand, resolveActive, runCheck } from "./helpers.js";
+import { loadInstructions, parseSteCommand, resolveActive, runCheck, steCompletions } from "./helpers.js";
 
 const steInstructions = loadInstructions();
 
@@ -77,6 +77,7 @@ export default function steExtension(pi) {
 
   pi.registerCommand("ste", {
     description: STE_COMMAND_DESCRIPTION,
+    getArgumentCompletions: steCompletions,
     handler: async (args, ctx) => {
       const parsed = parseSteCommand(args);
       if (parsed.type === "set") return setMode(parsed.active, ctx);
