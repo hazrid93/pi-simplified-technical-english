@@ -1,0 +1,45 @@
+{
+  "name": "pi-simplified-technical-english",
+  "version": "1.0.0",
+  "description": "Simplified Technical English (ASD-STE100) for pi: a writing skill, a /ste session mode, and a ste_check tool.",
+  "keywords": [
+    "pi-package",
+    "pi",
+    "pi-coding-agent",
+    "pi-extension",
+    "simplified-technical-english",
+    "ste",
+    "asd-ste100"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "hazrid93",
+    "url": "https://github.com/hazrid93"
+  },
+  "homepage": "https://github.com/hazrid93/pi-simplified-technical-english#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hazrid93/pi-simplified-technical-english.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hazrid93/pi-simplified-technical-english/issues"
+  },
+  "type": "module",
+  "files": [
+    "pi-extension/",
+    "skills/",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md"
+  ],
+  "scripts": {
+    "test": "node --test pi-extension/test/ste.test.js"
+  },
+  "pi": {
+    "extensions": ["./pi-extension/index.js"],
+    "skills": ["./skills"]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
