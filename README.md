@@ -35,8 +35,6 @@ The check tool needs `python3` on the PATH.
 
     npm test
 
-## Source and license
-
-The STE rules, word list, substitutions, examples, and the check script come from [0xpili/simplified-technical-english](https://github.com/0xpili/simplified-technical-english) (MIT).
+## License and notice
 
 The ASD-STE100 specification and its dictionary are the property of ASD. This package is not an official ASD product and does not certify compliance with ASD-STE100. See `NOTICE.md`.
