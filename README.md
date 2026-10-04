@@ -8,8 +8,6 @@ This package gives pi:
 - a **`/ste` command** that turns a persistent STE mode on and off for the session,
 - a **`ste_check` tool** that the agent can call to check text against the STE rules.
 
-This is a pi package port of [0xpili/simplified-technical-english](https://github.com/0xpili/simplified-technical-english).
-
 ## Install
 
     pi install npm:pi-simplified-technical-english
